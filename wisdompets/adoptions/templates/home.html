@@ -1,0 +1,20 @@
+<!-- Here we show all the list of pets that we have -->
+<!-- We use django templating engine and different things that supports like variable usage, tags, template filters and url reverse engine and the name -->
+
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Pets Info</h1>
+  {% for pet in pets%}
+    <div class="petname">
+      <a href="{% url 'pet_detail' pet.id %}">
+        <h3>{{ pet.name | capfirst }}</h3>
+      </a>
+      <p>{{pet.species}}</p>
+      {% if pet.breed %}
+        <p>Breed: {{pet.breed}}</p>
+      {% endif %}
+      <p class="hidden">{{pet.description}}</p>
+    </div>
+  {% endfor %}
+{% endblock content %}
