@@ -1,3 +1,9 @@
-<div class="">
-  Welcome Sai!
-</div>
+<h1>ALL JOBS LIST</h1>
+
+{% for job in jobs %}
+  <div class="Job"
+    <div class="Summary">
+      {{job.summary}}
+    </div>
+  </div>
+{% endfor %}
