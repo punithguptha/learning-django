@@ -76,8 +76,13 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'portfoliodb',
+        'USER': 'postgres',
+        'PASSWORD': 'Rama@123',
+        #Below one have to provide the wsl ip for it to connect properly instead of localhost
+        'HOST': '172.29.128.1',
+        'PORT': '5432',
     }
 }
 
@@ -119,3 +124,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+#Static Files Settings
+
+STATIC_ROOT=os.path.join(BASE_DIR, 'static')
