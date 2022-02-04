@@ -128,3 +128,10 @@ STATIC_URL = '/static/'
 #Static Files Settings
 
 STATIC_ROOT=os.path.join(BASE_DIR, 'static')
+
+
+MEDIA_URL = '/media/'
+
+#Media Files Settings
+
+MEDIA_ROOT=BASE_DIR
