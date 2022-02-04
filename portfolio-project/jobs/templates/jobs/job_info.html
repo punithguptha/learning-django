@@ -52,36 +52,16 @@
   <section class="py-5 text-center container">
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">Sai Punith</h1>
-        <img src="{% static 'ProfileImage1.png' %}" alt="Empty Profile Picture Image" style="height:300px;width:300px;padding-bottom:30px">
-        <p class="lead text-muted">Hello World..My name is Sai. Iam a Computer Science Student from Batch 2020 and currently a working professional</p>
+        <h1 class="fw-light">Job Details</h1>
+        <p class="lead text-muted">{{job_detail.summary}}</p>
+        <img src="{{job_detail.image.url}}" alt="Empty Profile Picture Image" style="height:300px;width:300px;padding-bottom:30px">
         <p>
-          <a href="mailto:joe@example.com" class="btn btn-primary my-2">Email Me</a>
+          <!-- The home below searches for the name matching "home" and calls that corresponding param -->
+          <a href="{% url 'home' %}" class="btn btn-primary my-2">Back</a>
         </p>
       </div>
     </div>
   </section>
-
-  <div class="album py-5 bg-light">
-    <div class="container">
-
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        {% for job in jobs%}
-          <a href="{% url 'detail' job.id %}" style="text-decoration:none">
-            <div class="col">
-              <div class="card shadow-sm">
-                <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
-                <img src="{{job.image.url}}" alt="Image corresponding to a job">
-                <div class="card-body">
-                  <p class="card-text">{{job.summary}}</p>
-                </div>
-              </div>
-            </div>
-          </a>
-        {% endfor %}
-      </div>
-    </div>
-  </div>
 
 </main>
 <!-- JavaScript Bundle with Popper -->
