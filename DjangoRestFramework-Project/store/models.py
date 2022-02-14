@@ -33,6 +33,8 @@ class Product(models.Model):
     def __repr__(self):
         return '<Product object ({}) "{}">'.format(self.id,self.name)
 
+    def __str__(self):
+        return "ProductName:{} - Id:{}".format(self.name,self.id)
 
 
 class ShoppingCart(models.Model):
@@ -58,6 +60,9 @@ class ShoppingCart(models.Model):
         address=self.address or '[No Address]'
         return '<ShoppingCart object ({}) "{}" "{}" >'.format(self.id, name, address)
 
+    def __str__(self):
+        return 'CartId:{} - CartName:{}'.format(self.id,self.name or '[Guest]')
+
 class ShoppingCartItem(models.Model):
     shopping_cart=models.ForeignKey(ShoppingCart,related_name='items',related_query_name='item',on_delete=models.CASCADE)
     product=models.ForeignKey(Product,related_name='+',on_delete=models.CASCADE)
@@ -67,4 +72,7 @@ class ShoppingCartItem(models.Model):
         return round(((self.quantity)*(self.product.current_price())))
 
     def __repr__(self):
-        return '<ShoppingCartItem object ({}) {}x "{}">'.format(self.id,self.quantity,self.product.name)
+        return '<ShoppingCartItem object ({}) {}x "{}" -> ShoppingCart {}>'.format(self.id,self.quantity,self.product.name,self.shopping_cart.id)
+
+    def __str__(self):
+        return 'CartId:{} - ProductName:{}'.format(self.shopping_cart.id,self.product.name)

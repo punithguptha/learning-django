@@ -9,7 +9,7 @@
         {% if product.photo %}
           <p>
             <a href="{% url 'show-product' product.id %}">
-              <img width="500" src="{{MEDIA_URL}}{{product.photo}}" alt="Representational Image for the current product">
+              <img width="500" src="{{MEDIA_URL}}{{product.photo.url}}" alt="Representational Image for the current product">
             </a>
           </p>
         {% endif %}
