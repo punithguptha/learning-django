@@ -8,11 +8,16 @@ class ProductAdmin(admin.ModelAdmin):
 
 @admin.register(ShoppingCart)
 class ShoppingCartAdmin(admin.ModelAdmin):
-    list_display=["name","address","TAX_RATE"]
+    list_display=["id","name","address","TAX_RATE"]
 
 @admin.register(ShoppingCartItem)
 class ShoppingCartItemAdmin(admin.ModelAdmin):
-    list_display=["quantity","get_product_name"]
+    list_display=["quantity","get_product_name","get_cart_name"]
 
+    @admin.display(description="ProductName") #This sets the column name in the Admin DB
     def get_product_name(self,instance):
         return instance.product.name
+
+    @admin.display(description="CartName")
+    def get_cart_name(self,instance):
+        return instance.shopping_cart.name or '[Guest]'
