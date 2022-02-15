@@ -18,8 +18,10 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 import store.views
+from store.api_views import ProductList
 
 urlpatterns = [
+    path('api/v1/products',store.api_views.ProductList.as_view()), #Generally views are function based but if they are class based we need to define this way
     path('admin/', admin.site.urls),
     path('products/<int:id>/',store.views.show, name='show-product'),
     path('cart/',store.views.cart,name='shopping-cart'),
