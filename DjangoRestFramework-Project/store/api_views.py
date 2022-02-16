@@ -3,6 +3,11 @@ from store.serializers import ProductSerializer
 from store.models import Product
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import SearchFilter
+from rest_framework.pagination import LimitOffsetPagination
+
+class ProductsPagination(LimitOffsetPagination):
+    default_limit=10
+    max_limit=100
 
 # https://www.django-rest-framework.org/api-guide/generic-views/ Refer to this to understand about generic views that drf provides and the params that are available for each
 class ProductList(ListAPIView):
@@ -13,6 +18,11 @@ class ProductList(ListAPIView):
     # One can also set the type of the search to be made..By default it is Partial Match..The other options available are Exact Match and Regular Expression
     # Refer to this https://www.django-rest-framework.org/api-guide/filtering/#searchfilter for more details on the same
     search_fields=('name','description')
+
+    # Below is to set the pagination option.To try use this http://127.0.0.1:8000/api/v1/products?offset=1&limit=2
+    # Offset describes which page to go to and limit describes the max entries in a page
+    pagination_class=ProductsPagination
+
     #To filter products based on if they are on sale or not..For this we have to override the get_queryset method
     # Look into queryset.filter in django to understand more
     def get_queryset(self):
