@@ -14,11 +14,16 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
 import store.views
 from store.api_views import ProductList
+from rest_framework import routers
+
+router=routers.DefaultRouter()
+router.register(r'modelviewset',store.api_views.ProductCrudAPIView)
+
 
 urlpatterns = [
     path('api/v1/products',store.api_views.ProductList.as_view()), #Generally views are function based but if they are class based we need to define this way
@@ -28,7 +33,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('products/<int:id>/',store.views.show, name='show-product'),
     path('cart/',store.views.cart,name='shopping-cart'),
-    path('',store.views.index, name='list-products')
+    path('',store.views.index, name='list-products'),
+    # The below is for modelviewset based approach where the mapping will be of the type api/v1/modelviewset/pk. And for create part pk doesnt exist
+    # The other thing is it handles all the crud opereations without needing to mention in the url. It takes the params from the request.method and does the thing accordingly.
+    path('api/v1/',include(router.urls)),
 ]
 
 

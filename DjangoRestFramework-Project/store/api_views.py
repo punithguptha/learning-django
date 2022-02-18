@@ -5,6 +5,7 @@ from store.models import Product
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import SearchFilter
 from rest_framework.pagination import LimitOffsetPagination
+from rest_framework.viewsets import ModelViewSet
 
 class ProductsPagination(LimitOffsetPagination):
     default_limit=10
@@ -106,3 +107,10 @@ class ProductRetrieveUpdateDestroyAPIView(RetrieveUpdateDestroyAPIView):
         elif response.status_code==404:
             return Response({'id':'Product with this id not found'},status=status.HTTP_404_NOT_FOUND)
         return response
+
+
+class ProductCrudAPIView(ModelViewSet):
+    serializer_class=ProductSerializer
+    queryset=Product.objects.all()
+    lookup_field='id'
+    
