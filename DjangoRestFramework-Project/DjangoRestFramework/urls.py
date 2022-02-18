@@ -23,6 +23,8 @@ from store.api_views import ProductList
 urlpatterns = [
     path('api/v1/products',store.api_views.ProductList.as_view()), #Generally views are function based but if they are class based we need to define this way
     path('api/v1/products/create',store.api_views.ProductCreationAPIView.as_view()),
+    path('api/v1/products/<int:id>/delete',store.api_views.ProductDeletionAPIView.as_view()),
+    path('api/v1/products/<int:id>/rud',store.api_views.ProductRetrieveUpdateDestroyAPIView.as_view()),
     path('admin/', admin.site.urls),
     path('products/<int:id>/',store.views.show, name='show-product'),
     path('cart/',store.views.cart,name='shopping-cart'),

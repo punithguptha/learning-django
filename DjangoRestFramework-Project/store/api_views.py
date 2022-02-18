@@ -1,5 +1,5 @@
 from rest_framework.exceptions import ValidationError
-from rest_framework.generics import ListAPIView,CreateAPIView
+from rest_framework.generics import ListAPIView,CreateAPIView,DestroyAPIView,RetrieveUpdateDestroyAPIView
 from store.serializers import ProductSerializer
 from store.models import Product
 from django_filters.rest_framework import DjangoFilterBackend
@@ -52,3 +52,57 @@ class ProductCreationAPIView(CreateAPIView):
         except ValueError:
             raise ValidationError({'price':'Must be a valid number'})
         return super().create(request,*args,**kwargs)
+
+class ProductDeletionAPIView(DestroyAPIView):
+    queryset=Product.objects.all()
+    lookup_field='id'
+
+    def delete(self,request,*args,**kwargs):
+        product_id=request.data.get('id')
+        response=super().delete(request,*args,**kwargs)
+        if response.status_code==204:
+            from django.core.cache import cache
+            cache.delete('product_data_{}'.format(product_id))
+        return response
+
+class ProductRetrieveUpdateDestroyAPIView(RetrieveUpdateDestroyAPIView):
+    queryset=Product.objects.all()
+    lookup_field='id'
+    serializer_class=ProductSerializer
+
+    def delete(self,request,*args,**kwargs):
+        product_id=request.data.get('id')
+        response=super().delete(request,*args,**kwargs)
+        if response.status_code==204:
+            from django.core.cache import cache
+            cache.delete('product_data_{}'.format(product_id))
+        return response
+
+    def update(self,request,*args,**kwargs):
+        response=super().update(request,*args,**kwargs)
+        if response.status_code==200:
+            from django.core.cache import cache
+            product=response.data
+            # Cache set automatically updates the cache if the key already exists..So we dont need to clear it before adding a key
+            cache.set('product_data_{}'.format(product['id']),{
+                'name': product['name'],
+                'description': product['description'],
+                'price': product['price'],
+            },3600)
+        elif response.status_code==404:
+            raise ValidationError({'id':'Product with given id not found'})
+        return response
+
+    def get(self,request,*args,**kwargs):
+        response=super().get(request,*args,**kwargs)
+        if response.status_code==200:
+            from django.core.cache import cache
+            product=response.data
+            cache.set('product_id_{}'.format(product['id']),{
+                'name':product['name'],
+                'description':product['description'],
+                'price':product['price'],
+            },3600)
+        elif response.status_code==404:
+            return Response({'id':'Product with this id not found'},status=status.HTTP_404_NOT_FOUND)
+        return response
