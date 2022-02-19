@@ -1,11 +1,12 @@
 from rest_framework.exceptions import ValidationError
-from rest_framework.generics import ListAPIView,CreateAPIView,DestroyAPIView,RetrieveUpdateDestroyAPIView
-from store.serializers import ProductSerializer
+from rest_framework.generics import ListAPIView,CreateAPIView,DestroyAPIView,RetrieveUpdateDestroyAPIView,GenericAPIView
+from store.serializers import ProductSerializer,ProductStatSerializer
 from store.models import Product
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import SearchFilter
 from rest_framework.pagination import LimitOffsetPagination
 from rest_framework.viewsets import ModelViewSet
+from rest_framework.response import Response
 
 class ProductsPagination(LimitOffsetPagination):
     default_limit=10
@@ -113,4 +114,18 @@ class ProductCrudAPIView(ModelViewSet):
     serializer_class=ProductSerializer
     queryset=Product.objects.all()
     lookup_field='id'
-    
+
+class ProductStatsAPIView(GenericAPIView):
+    lookup_field='id'
+    serializer_class=ProductStatSerializer
+    queryset=Product.objects.all()
+
+    def get(self,request,format=None,id=None):
+        obj=self.get_object()
+        serializer=ProductStatSerializer({
+            'stats':{
+                '2022-02-19':[5,10,15],
+                '2022-02-20':[3,6,9],
+            }
+        })
+        return Response(serializer.data) 

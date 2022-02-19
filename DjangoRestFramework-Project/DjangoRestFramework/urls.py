@@ -30,6 +30,7 @@ urlpatterns = [
     path('api/v1/products/create',store.api_views.ProductCreationAPIView.as_view()),
     path('api/v1/products/<int:id>/delete',store.api_views.ProductDeletionAPIView.as_view()),
     path('api/v1/products/<int:id>/rud',store.api_views.ProductRetrieveUpdateDestroyAPIView.as_view()),
+    path('api/v1/products/<int:id>/stats',store.api_views.ProductStatsAPIView.as_view()),
     path('admin/', admin.site.urls),
     path('products/<int:id>/',store.views.show, name='show-product'),
     path('cart/',store.views.cart,name='shopping-cart'),

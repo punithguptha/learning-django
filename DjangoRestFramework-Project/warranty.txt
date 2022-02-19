@@ -1,0 +1,3 @@
+WARRANTY
+
+This is a sample warranty file
