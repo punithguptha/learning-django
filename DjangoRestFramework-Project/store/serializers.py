@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from store.models import Product,ShoppingCartItem
+import pdb
 
 class ShoppingCartItemSerializer(serializers.ModelSerializer):
     quantity=serializers.IntegerField(min_value=1,max_value=100)
@@ -9,7 +10,6 @@ class ShoppingCartItemSerializer(serializers.ModelSerializer):
         fields=('product','quantity')
 
 class ProductSerializer(serializers.ModelSerializer):
-
     is_on_sale=serializers.BooleanField(read_only=True)
     current_price=serializers.FloatField(read_only=True)
     description=serializers.CharField(min_length=2,max_length=200)
@@ -20,12 +20,14 @@ class ProductSerializer(serializers.ModelSerializer):
         max_digits=None,decimal_places=2,
     )
     sale_start=serializers.DateTimeField(
+        required=False,
         input_formats=['%I:%M %p %d %B %Y'], format=None,allow_null=True,
         help_text='Accepted format is "12:01 PM 19 February 2022"',
         style={'input_type':'text','placeholder':'12:01 AM 28 July 2019'},
     )
 
     sale_end=serializers.DateTimeField(
+        required=False,
         input_formats=['%I:%M %p %d %B %Y'], format=None,allow_null=True,
         help_text='Accepted format is "12:01 PM 19 February 2022"',
         style={'input_type':'text','placeholder':'12:01 AM 28 July 2019'},
@@ -47,12 +49,20 @@ class ProductSerializer(serializers.ModelSerializer):
 
     # Validated data is that data which is already passed through the serializer and model validation process. It is used to create or update a model
     def update(self,instance,validated_data):
+        # pdb.set_trace()
         if validated_data.get('warranty',None):
             instance.description += '\n\nWarranty Information:\n'
             instance.description += b'; '.join(
                 validated_data['warranty'].readlines()
             ).decode()
-            return instance
+        return super().update(instance,validated_data)
+
+    # Below we are overriding the default create method..This is to handle the warranty error case while running tests
+    def create(self,validated_data):
+        # pdb.set_trace()
+        validated_data.pop('warranty')
+        return Product.objects.create(**validated_data)
+
 class ProductStatSerializer(serializers.Serializer):
     # The dictfield can take values of any type but the key must be a string
     stats= serializers.DictField(

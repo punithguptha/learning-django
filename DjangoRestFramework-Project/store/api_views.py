@@ -128,4 +128,4 @@ class ProductStatsAPIView(GenericAPIView):
                 '2022-02-20':[3,6,9],
             }
         })
-        return Response(serializer.data) 
+        return Response(serializer.data)

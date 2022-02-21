@@ -26,7 +26,7 @@ router.register(r'modelviewset',store.api_views.ProductCrudAPIView)
 
 
 urlpatterns = [
-    path('api/v1/products',store.api_views.ProductList.as_view()), #Generally views are function based but if they are class based we need to define this way
+    path('api/v1/products',store.api_views.ProductList.as_view(),name="product_list_api"), #Generally views are function based but if they are class based we need to define this way
     path('api/v1/products/create',store.api_views.ProductCreationAPIView.as_view()),
     path('api/v1/products/<int:id>/delete',store.api_views.ProductDeletionAPIView.as_view()),
     path('api/v1/products/<int:id>/rud',store.api_views.ProductRetrieveUpdateDestroyAPIView.as_view()),
