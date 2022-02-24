@@ -1,0 +1,157 @@
+geckodriver.exe: error: Found argument '--websocket-port' which wasn't expected, or isn't valid in this context
+
+USAGE:
+    geckodriver.exe [FLAGS] [OPTIONS]
+
+For more information try --help
+
+geckodriver.exe: error: Found argument '--websocket-port' which wasn't expected, or isn't valid in this context
+
+USAGE:
+    geckodriver.exe [FLAGS] [OPTIONS]
+
+For more information try --help
+
+geckodriver.exe: error: Found argument '--websocket-port' which wasn't expected, or isn't valid in this context
+
+USAGE:
+    geckodriver.exe [FLAGS] [OPTIONS]
+
+For more information try --help
+
+geckodriver.exe: error: Found argument '--websocket-port' which wasn't expected, or isn't valid in this context
+
+USAGE:
+    geckodriver.exe [FLAGS] [OPTIONS]
+
+For more information try --help
+
+geckodriver.exe: error: Found argument '--websocket-port' which wasn't expected, or isn't valid in this context
+
+USAGE:
+    geckodriver.exe [FLAGS] [OPTIONS]
+
+For more information try --help
+
+1645554499620	geckodriver	INFO	Listening on 127.0.0.1:45875
+1645554554425	geckodriver	INFO	Listening on 127.0.0.1:33757
+1645555186080	geckodriver	INFO	Listening on 127.0.0.1:58769
+1645555403408	geckodriver	INFO	Listening on 127.0.0.1:41717
+1645555662466	geckodriver	INFO	Listening on 127.0.0.1:41405
+1645556472111	geckodriver	INFO	Listening on 127.0.0.1:44279
+1645556745375	geckodriver	INFO	Listening on 127.0.0.1:43731
+1645558184381	geckodriver	INFO	Listening on 127.0.0.1:61555
+1645558323020	geckodriver	INFO	Listening on 127.0.0.1:61631
+1645558326104	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "61632" "-no-remote" "-profile" "C:\\Users\\saipu\\AppData\\Local\\Temp\\rust_mozprofileOBHDys"
+1645558326401	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\saipu\\AppData\\Local\\Temp\\rust_mozprofileOBHDys\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:61632/devtools/browser/0d0a0f23-8132-42db-a6fd-d7fca04e80e7
+1645558327935	Marionette	INFO	Listening on port 61639
+1645558328165	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1645558346425	Marionette	INFO	Stopped listening on port 61639
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+
+###!!! [Parent][PGPUParent] Error: RunMessage(msgname=PGPU::Msg_ShutdownVR) Channel closing: too late to send/recv, messages will be lost
+
+1645558348024	geckodriver	INFO	Listening on 127.0.0.1:61697
+1645558351110	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "61698" "-no-remote" "-profile" "C:\\Users\\saipu\\AppData\\Local\\Temp\\rust_mozprofileR92D0H"
+1645558351382	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\saipu\\AppData\\Local\\Temp\\rust_mozprofileR92D0H\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:61698/devtools/browser/5673f1ec-aadb-4858-af9a-b603104f4a5a
+1645558352916	Marionette	INFO	Listening on port 61705
+1645558353173	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1645558423775	Marionette	INFO	Stopped listening on port 61705
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+remote-debugging-port" "61782" "-no-remote" "-profile" "C:\\Users\\saipu\\AppData\\Local\\Temp\\rust_mozprofile3DyFCn"
+1645558413774	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\saipu\\AppData\\Local\\Temp\\rust_mozprofile3DyFCn\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:61782/devtools/browser/ba788b92-d183-43c2-8ebc-3c70228a8850
+1645558415307	Marionette	INFO	Listening on port 61790
+1645558415574	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: , line 0: NotFoundError: Could not move source file(C:\Users\saipu\AppData\Local\Temp\rust_mozprofile3DyFCn\bookmarkbackups\bookmarks-2022-02-23.jsonlz4) because it does not exist
+1645637491104	Marionette	INFO	Stopped listening on port 61790
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+
+###!!! [Parent][PGPUParent] Error: RunMessage(msgname=PGPU::Msg_ShutdownVR) Channel closing: too late to send/recv, messages will be lost
+
+1645637496427	geckodriver	INFO	Listening on 127.0.0.1:62377
+1645637499518	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "62378" "-no-remote" "-profile" "C:\\Users\\saipu\\AppData\\Local\\Temp\\rust_mozprofileaIEREw"
+1645637499803	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\saipu\\AppData\\Local\\Temp\\rust_mozprofileaIEREw\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:62378/devtools/browser/89dae828-b779-4f76-96ce-645162c55f3c
+1645637501345	Marionette	INFO	Listening on port 62384
+1645637501590	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1645637509591	Marionette	INFO	Stopped listening on port 62384
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+
+###!!! [Parent][PGPUParent] Error: RunMessage(msgname=PGPU::Msg_ShutdownVR) Channel closing: too late to send/recv, messages will be lost
+
+1645639909662	geckodriver	INFO	Listening on 127.0.0.1:63883
+1645639912729	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "63884" "-no-remote" "-profile" "C:\\Users\\saipu\\AppData\\Local\\Temp\\rust_mozprofiletAgezu"
+1645639912997	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\saipu\\AppData\\Local\\Temp\\rust_mozprofiletAgezu\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:63884/devtools/browser/749f1d3e-896d-48fa-a3e8-ba6825cd6cf1
+1645639914526	Marionette	INFO	Listening on port 63890
+1645639914789	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1645639917027	Marionette	INFO	Stopped listening on port 63890
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+
+###!!! [Parent][PGPUParent] Error: RunMessage(msgname=PGPU::Msg_ShutdownVR) Channel closing: too late to send/recv, messages will be lost
+
+1645722034895	geckodriver	INFO	Listening on 127.0.0.1:54004
+1645722037964	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-no-remote" "-profile" "C:\\Users\\saipu\\AppData\\Local\\Temp\\rust_mozprofileGqoijZ"
+1645722038351	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\saipu\\AppData\\Local\\Temp\\rust_mozprofileGqoijZ\\search.json.mozlz4", (void 0)))
+1645722039990	Marionette	INFO	Listening on port 54014
+1645722040027	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1645722040379	Marionette	INFO	Stopped listening on port 54014
+console.error: Region.jsm: "Error fetching region" (new TypeError("NetworkError when attempting to fetch resource.", ""))
+console.error: Region.jsm: "Failed to fetch region" (new Error("NO_RESULT", "resource://gre/modules/Region.jsm", 419))
+1645722109885	geckodriver	INFO	Listening on 127.0.0.1:42467
+1645722474806	geckodriver	INFO	Listening on 127.0.0.1:57535
+1645722475817	mozrunner::runner	INFO	Running command: "/mnt/c/Program Files/Mozilla Firefox/firefox.exe" "--marionette" "-no-remote" "-profile" "/tmp/rust_mozprofileSbjOi6"
+Error: argument --profile requires a path
+[GFX1-]: shader-cache: Shader disk cache [2022-02-24T17:07:53Z ERROR webrender_bindings::program_cache] shader-cache: Shader disk cache is not supported
+is not supported
+1645722605571	geckodriver	INFO	Listening on 127.0.0.1:56609
+1645722606541	mozrunner::runner	INFO	Running command: "/mnt/c/Program Files/Mozilla Firefox/firefox.exe" "--marionette" "-no-remote" "-profile" "/tmp/rust_mozprofilejPCPmc"
+Error: argument --profile requires a path
+[GFX1-]: shader-cache: Shader [2022-02-24T17:10:04Z ERROR webrender_bindings::program_cache] shader-cache: Shader disk cache is not supported
+disk cache is not supported
+
+###!!! [Parent][PGPUParent] Error: RunMessage(msgname=PGPU::Msg_ShutdownVR) Channel closing: too late to send/recv, messages will be lost
+
+1645723064848	geckodriver	INFO	Listening on 127.0.0.1:41123
+1645723065845	mozrunner::runner	INFO	Running command: "/mnt/c/Program Files/Mozilla Firefox/firefox.exe" "--marionette" "-no-remote" "-profile" "/tmp/rust_mozprofile3Lhujg"
+Error: argument --profile requires a path
+[GFX1-]: shader-cache: Shader disk cach[2022-02-24T17:17:43Z ERROR webrender_bindings::program_cache] shader-cache: Shader disk cache is not supported
+e is not supported
+1645723130956	geckodriver	INFO	Listening on 127.0.0.1:49145
+1645723132971	mozrunner::runner	INFO	Running command: "/mnt/c/Program Files/Mozilla Firefox/firefox.exe" "--marionette" "-no-remote" "-profile" "/tmp/rust_mozprofileYmXXdu"
+Error: argument --profile requires a path
+[GFX1-]: shader-cache: Shader disk cac[2022-02-24T17:18:50Z ERROR webrender_bindings::program_cache] shader-cache: Shader disk cache is not supported
+he is not supported
+1645723585830	geckodriver	INFO	Listening on 127.0.0.1:51501
+1645723587815	mozrunner::runner	INFO	Running command: "/mnt/c/Program Files/Mozilla Firefox/firefox.exe" "--marionette" "-no-remote" "-profile" "/tmp/rust_mozprofilev1cSse"
+Error: argument --profile requires a path
+[GFX1-]: shader-cac[2022-02-24T17:26:25Z ERROR webrender_bindings::program_cache] shader-cache: Shader disk cache is not supported
+he: Shader disk cache is not supported
+1645723617799	geckodriver	INFO	Listening on 127.0.0.1:50247
+1645723619786	mozrunner::runner	INFO	Running command: "/mnt/c/Program Files/Mozilla Firefox/firefox.exe" "--marionette" "-no-remote" "-profile" "/tmp/rust_mozprofileXulY5r"
+Error: argument --profile requires a path
+[GFX1-]: shader-cache: Sha[2022-02-24T17:26:57Z ERROR webrender_bindings::program_cache] shader-cache: Shader disk cache is not supported
+der disk cache is not supported
+1645723664326	geckodriver	INFO	Listening on 127.0.0.1:40689
+1645723665313	mozrunner::runner	INFO	Running command: "/mnt/c/Program Files/Mozilla Firefox/firefox.exe" "--marionette" "-no-remote" "-profile" "/tmp/rust_mozprofileuvZ0XH"
+Error: argument --profile requires a path
+[GFX1-]: shader-cache: Shader disk cache [2022-02-24T17:27:42Z ERROR webrender_bindings::program_cache] shader-cache: Shader disk cache is not supported
+is not supported
+1645723709530	geckodriver	INFO	Listening on 127.0.0.1:55115
+1645723712606	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-no-remote" "-profile" "C:\\Users\\saipu\\AppData\\Local\\Temp\\rust_mozprofilerFeJmg"
+1645723712909	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\saipu\\AppData\\Local\\Temp\\rust_mozprofilerFeJmg\\search.json.mozlz4", (void 0)))
+1645723714813	Marionette	INFO	Listening on port 55124
+1645723715257	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1645723715428	Marionette	INFO	Stopped listening on port 55124
+console.error: Region.jsm: "Error fetching region" (new TypeError("NetworkError when attempting to fetch resource.", ""))
+console.error: Region.jsm: "Failed to fetch region" (new Error("NO_RESULT", "resource://gre/modules/Region.jsm", 419))
