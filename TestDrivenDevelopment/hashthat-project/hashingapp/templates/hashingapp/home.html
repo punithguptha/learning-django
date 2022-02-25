@@ -1,1 +1,9 @@
-Hello!
+<!-- action tells us where to go when the form is submitted -->
+<form action="{% url 'home' %}" method="post">
+  <!-- For method type post we require this csrf tag -->
+  {% csrf_token %}
+  <!-- as_p renders each of the form elements inside a p tag..Similarly we have as_ul, as_table etc in django -->
+  {{form.as_p}}
+  <!-- Value is the one which gets displayed visually -->
+  <input type="submit" name="submit" value="Hash">
+</form>

@@ -1,0 +1,11 @@
+{% if hash_data.message %}
+  <h1>{{hash_data.message}}</h1>
+{% else %}
+  <h2>Hash:</h2>
+  <h1>{{hash_data.hashed_text}}</h1>
+  <h2>Text:</h2>
+  <h1>{{hash_data.text}}</h1>
+{% endif %}
+<h3>
+  <a href="{% url 'home' %}">Home</a>
+</h3>
