@@ -3,6 +3,7 @@ from .forms import HashForm
 import hashlib
 from .models import HashModel
 import pdb
+from django.http import JsonResponse
 
 # Create your views here.
 
@@ -34,3 +35,7 @@ def hashview(request,id):
             'message':"Url doesnot exist",
         }
     return render(request,'hashingapp/hashPage.html',{'hash_data':hash_model_entry})
+
+def quickhash(request):
+    text=request.GET['text']
+    return JsonResponse({'hashed_text':hashlib.sha256(text.encode('utf-8')).hexdigest()})

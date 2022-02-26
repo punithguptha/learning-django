@@ -7,3 +7,23 @@
   <!-- Value is the one which gets displayed visually -->
   <input type="submit" name="submit" value="Hash">
 </form>
+
+<h2 id='quickhash'></h2>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!-- Keyup means this function gets executed when in this selected element a key stroke is generated -->
+<script type="text/javascript">
+  $('#id_text').keyup(function(){
+    var text=$(this).val();
+    $.ajax({
+      url:'/quickhash',
+      data:{
+        'text':text
+      },
+      dataType:'json',
+      success:function(data){
+        $('#quickhash').text(data['hashed_text']);
+      }
+    });
+  });
+</script>
