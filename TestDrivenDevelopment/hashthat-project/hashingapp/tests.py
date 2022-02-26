@@ -29,7 +29,7 @@ class FunctionalTestCase(TestCase):
         self.browser.get('http://localhost:8000')
         self.browser.find_element_by_id('id_text').send_keys('hello')
         # For ajax requests a sleep time is required since we dont know how long a response comes in general
-        time.sleep(2)
+        time.sleep(5)
         self.assertIn('2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824',self.browser.page_source)
 
     def tearDown(self):
