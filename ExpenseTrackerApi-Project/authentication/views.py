@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from rest_framework import generics,status
-from .serializers import RegisterSerializer
+from .serializers import RegisterSerializer,EmailVerificationSerializer
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
 from .models import User
@@ -9,6 +9,9 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.urls import reverse
 import jwt
 from django.conf import settings
+from drf_yasg.utils import swagger_auto_schema
+from drf_yasg import openapi
+
 
 # Create your views here.
 
@@ -43,6 +46,12 @@ class RegisterView(generics.GenericAPIView):
 
 class VerifyEmail(generics.GenericAPIView):
 
+    serializer_class=EmailVerificationSerializer
+
+    # in_ means where the param exists..In our case since it is the query param we specify it
+    token_param_openapi=openapi.Parameter('token',in_=openapi.IN_QUERY,description="JWT Token",type=openapi.TYPE_STRING)
+
+    @swagger_auto_schema(manual_parameters=[token_param_openapi])
     def get(self,request):
         # HttpRequest.GET is the request here which is django's request object and it returns a QueryDict
         #To access the values inside QueryDict the syntax is QueryDict.get('keyname',default=None) where default is an optional param
@@ -62,3 +71,7 @@ class VerifyEmail(generics.GenericAPIView):
             return Response({'error':'Activation Link Expired'},status=status.HTTP_400_BAD_REQUEST)
         except jwt.exceptions.DecodeError as identifier:
             return Response({'error':'Invalid token'},status=status.HTTP_400_BAD_REQUEST)
+
+
+class LoginAPIView(generics.GenericAPIView):
+    pass
