@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import (AbstractBaseUser,BaseUserManager,PermissionsMixin)
-
+from rest_framework_simplejwt.tokens import RefreshToken
 # Create your models here.
 
 class UserManager(BaseUserManager):
@@ -37,6 +37,7 @@ class User(AbstractBaseUser,PermissionsMixin):
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at=models.DateTimeField(auto_now=True)
 
+    # This change below is used for authenticate method in django.contrib.auth..By default the method takes username and password as arguments but with this change we give it email and password as arguments
     USERNAME_FIELD='email'
     # Required Fields is used during super user creation time
     REQUIRED_FIELDS=['username']
@@ -47,4 +48,8 @@ class User(AbstractBaseUser,PermissionsMixin):
         return self.email
 
     def tokens(self):
-        return ""
+        refresh=RefreshToken.for_user(self)
+        return {
+            "refresh_token":str(refresh),
+            "access_token": str(refresh.access_token)
+        }
