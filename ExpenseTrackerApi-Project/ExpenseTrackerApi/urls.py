@@ -32,6 +32,7 @@ schema_view = get_schema_view(
       license=openapi.License(name="BSD License"),
    ),
    public=True,
+   # To change this somehow such that only authenticated users can access this documentation
    permission_classes=[permissions.AllowAny],
 )
 
@@ -46,6 +47,7 @@ urlpatterns_swagger = [
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/',include('authentication.urls')),
+    path('expenses/',include('expenses.urls')),
 ]
 
 urlpatterns+=urlpatterns_swagger

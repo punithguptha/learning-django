@@ -46,7 +46,21 @@ INSTALLED_APPS = [
     'rest_framework',
     'drf_yasg', #App to generate swagger documentation
     'authentication',
+    'expenses',
 ]
+
+SWAGGER_SETTINGS={
+    'SECURITY_DEFINITIONS':{
+        'Basic': {
+            'type': 'basic'
+        },
+        'Bearer':{
+            'type': 'apiKey',
+            'name':'Authorization',
+            'in':'header',
+        }
+    }
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
