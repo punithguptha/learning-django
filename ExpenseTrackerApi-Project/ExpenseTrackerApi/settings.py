@@ -104,6 +104,7 @@ DATABASES = {
 }
 
 REST_FRAMEWORK={
+    'DEFAULT_PAGINATION_CLASS' : 'pagination.ExpensePaginationGlobal',
     # Below setting is used to set the default key in response form django to our custom one( in the api response)
     'NON_FIELD_ERRORS_KEY':'error',
     # Below is for djangorestframework-simplejwt package which is used to generate the tokens
