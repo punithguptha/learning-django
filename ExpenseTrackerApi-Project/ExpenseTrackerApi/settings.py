@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'drf_yasg', #App to generate swagger documentation
     'authentication',
     'expenses',
+    'income',
 ]
 
 SWAGGER_SETTINGS={

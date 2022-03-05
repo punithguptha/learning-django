@@ -25,7 +25,7 @@ class ExpenseListAPIView(ListCreateAPIView):
     # https://www.django-rest-framework.org/api-guide/pagination/ ->Refer to this doc for more details on pagination part
     # pagination_class=ExpensePaginationTypeOne
     # pagination_class=ExpensePaginationTypeTwo
-    
+
     # Inbuilt method override
     def perform_create(self,serializer):
         return serializer.save(owner=self.request.user)
@@ -41,11 +41,7 @@ class ExpenseDetailAPIView(RetrieveUpdateDestroyAPIView):
     queryset=Expense.objects.all()
     permission_classes=(permissions.IsAuthenticated,IsOwner,)
     lookup_field="id"
-
-    # Inbuilt method override
-    def perform_create(self,serializer):
-        return serializer.save(owner=self.request.user)
-
+    
     # Inbuilt method override
     def get_queryset(self):
         return self.queryset.filter(owner=self.request.user)
