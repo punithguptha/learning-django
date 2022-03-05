@@ -1,3 +1,5 @@
+# Global Renderers file
+
 from rest_framework import renderers
 import json
 
