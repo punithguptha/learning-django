@@ -5,7 +5,7 @@ class TestSetup(APITestCase):
     def setUp(self):
         self.register_url=reverse('register')
         self.login_url=reverse('login')
-        user_data={
+        self.user_data={
             'email':'testuser@gmail.com',
             'username':'testuser',
             'password':'testuserpass',
