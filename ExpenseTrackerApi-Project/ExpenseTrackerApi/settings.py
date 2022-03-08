@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'rest_framework',
     'drf_yasg', #App to generate swagger documentation
     'authentication',
@@ -67,6 +68,7 @@ SWAGGER_SETTINGS={
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -171,3 +173,13 @@ EMAIL_PORT=587
 # pdb.set_trace()
 EMAIL_HOST_USER=env('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD=env('EMAIL_HOST_PASSWORD')
+
+
+
+# CORS Settings
+CORS_ALLOW_ALL_ORIGINS=True
+# CORS_ALLOWED_ORIGINS=[
+#     # "http://localhost:8080",
+#     # "http://127.0.0.1:8080",
+#     "http://dummy.com",
+# ]

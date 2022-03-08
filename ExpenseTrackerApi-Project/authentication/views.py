@@ -123,6 +123,7 @@ class PasswordTokenCheckAPIView(generics.GenericAPIView):
 
      serializer_class=SetNewPasswordSerializer
 
+     # Currently we only check if the token is valid or not..But in future it should be the one to redirect to the setnewpassword api when the link is clicked from email
      def get(self,request,uidb64,token):
          try:
              id=smart_str(urlsafe_base64_decode(uidb64))

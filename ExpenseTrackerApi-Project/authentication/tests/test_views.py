@@ -25,3 +25,11 @@ class TestViews(TestSetup):
         user.save()
         result_2=self.client.post(self.login_url,self.user_data,format='json')
         self.assertEqual(result_2.status_code,200)
+
+    # TBD
+    def test_using_same_reset_link_twice_should_fail(self):
+        pass
+
+    #TBD
+    def test_reset_password(self):
+        pass
