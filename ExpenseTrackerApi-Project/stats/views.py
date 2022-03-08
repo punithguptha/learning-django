@@ -2,6 +2,7 @@ from django.shortcuts import render
 from rest_framework.views import APIView
 import datetime
 from expenses.models import Expense
+from income.models import Income
 from rest_framework import status,response
 from rest_framework.exceptions import AuthenticationFailed
 
@@ -28,4 +29,28 @@ class ExpenseSummaryStatsAPIView(APIView):
 
         for keys in final_data:
             final_data[keys]["amount"]=str(final_data[keys]["amount"])
-        return response.Response({'category_data':final_data},status=status.HTTP_200_OK)
+        return response.Response({'expense_category_data':final_data},status=status.HTTP_200_OK)
+
+
+class IncomeSummaryStatsAPIView(APIView):
+
+    def get(self,request):
+        todays_date=datetime.date.today()
+        year_ago_date=todays_date-datetime.timedelta(days=365)
+        try:
+            income_all=Income.objects.filter(owner=request.user,date__gte=year_ago_date,date__lte=todays_date)
+        except Exception as e:
+            raise AuthenticationFailed("Invalid credentials or user not logged in..Please check and try again!!")
+
+        final_data={}
+
+
+        for income in income_all:
+            if income.source not in final_data:
+                final_data[income.source]={}
+                final_data[income.source]["amount"]=0
+            final_data[income.source]["amount"]+=income.amount
+
+        for keys in final_data:
+            final_data[keys]["amount"]=str(final_data[keys]["amount"])
+        return response.Response({'income_source_data':final_data},status=status.HTTP_200_OK)

@@ -35,5 +35,9 @@ class TestViews(TestSetup):
         pass
 
     # TBD
-    def test_category_expense_api_test(self):
+    def test_category_expense_api(self):
+        pass
+
+    # TBD
+    def test_source_income_api(self):
         pass
