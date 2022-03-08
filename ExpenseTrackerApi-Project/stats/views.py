@@ -3,7 +3,8 @@ from rest_framework.views import APIView
 import datetime
 from expenses.models import Expense
 from income.models import Income
-from rest_framework import status,response
+from rest_framework import status
+from rest_framework.response import Response
 from rest_framework.exceptions import AuthenticationFailed
 
 # Create your views here.
@@ -29,7 +30,7 @@ class ExpenseSummaryStatsAPIView(APIView):
 
         for keys in final_data:
             final_data[keys]["amount"]=str(final_data[keys]["amount"])
-        return response.Response({'expense_category_data':final_data},status=status.HTTP_200_OK)
+        return Response({'expense_category_data':final_data},status=status.HTTP_200_OK)
 
 
 class IncomeSummaryStatsAPIView(APIView):
@@ -53,4 +54,4 @@ class IncomeSummaryStatsAPIView(APIView):
 
         for keys in final_data:
             final_data[keys]["amount"]=str(final_data[keys]["amount"])
-        return response.Response({'income_source_data':final_data},status=status.HTTP_200_OK)
+        return Response({'income_source_data':final_data},status=status.HTTP_200_OK)
