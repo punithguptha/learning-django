@@ -33,3 +33,7 @@ class TestViews(TestSetup):
     #TBD
     def test_reset_password(self):
         pass
+
+    # TBD
+    def test_category_expense_api_test(self):
+        pass

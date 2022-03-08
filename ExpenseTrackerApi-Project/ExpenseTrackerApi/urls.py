@@ -49,6 +49,7 @@ urlpatterns = [
     path('auth/',include('authentication.urls')),
     path('expenses/',include('expenses.urls')),
     path('income/',include('income.urls')),
+    path('stats/',include('stats.urls')),
 ]
 
 urlpatterns+=urlpatterns_swagger
